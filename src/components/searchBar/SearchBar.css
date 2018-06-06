@@ -1,0 +1,12 @@
+.filter__container {
+    border: 1px solid lightgray; }
+  
+  .filter__formgroup {
+    padding-left: 15px;
+    padding-top: 5px; }
+  
+    .search-button {
+      position: relative;
+      top: 5px;
+      left: 30px;
+      min-width: 140px; }
