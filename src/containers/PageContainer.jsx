@@ -14,13 +14,8 @@ class PageContainer extends Component {
             </Row>
             <Row>
                 <Col>
-                   <PlayersGrid />
-                   
+                   <PlayersGrid />                   
                 </Col>
-            </Row>
-           
-            <Row>
-                
             </Row>
         </Col>
         );
