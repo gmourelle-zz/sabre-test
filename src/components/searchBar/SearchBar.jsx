@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, FormGroup, Container, Input, Button, Col } from 'reactstrap';
-import './SearchBar.css'
+import './SearchBar.css';
+
 
 class SearchBar extends Component {
 
@@ -11,11 +12,12 @@ onKeyPress(e) {
         }
 }
 
-onKeyPress2(e) {
-        const re = /[1-40]+/g;
-        if (!re.test(e.key)) {
-          e.preventDefault();
-        }
+handleSubmit = (event) => {
+    event.preventDefault();
+    //this.props.onHandleSubmit(this.state);
+    const newSearch = this.state;
+    this.props.onSearch('newSearch');
+    this.setState({ name: '',surname:'', country: '', dob: '' });
 }
 
 render() {
@@ -56,13 +58,13 @@ render() {
                     </Col>
                         <FormGroup className="filter__formgroup">
                             <Input type="number" placeholder="Age" min="18" max="40"/>
-                        </FormGroup>
-                        <FormGroup className="filter__formgroup">
-                            <Input type="text" placeholder="Age"  onKeyPress={(e) => this.onKeyPress2(e)}/>
-                        </FormGroup>
+                        </FormGroup>                        
                     <Col>
                         <FormGroup className="filter__formgroup">
-                        <Button  color="primary" className="float-left search-button">
+                            <Button  onClick={e => this.handleSubmit(e)}
+                            color="primary" 
+                            className="float-left search-button"
+                            >
                                 Search
                             </Button>
                         </FormGroup>

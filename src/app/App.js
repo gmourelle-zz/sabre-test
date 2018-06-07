@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PageContainer from '../containers/PageContainer';
+
+import PageContainer from '../containers/Container';
 import './App.css';
 
 
