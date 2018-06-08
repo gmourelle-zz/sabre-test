@@ -1,18 +1,24 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-import * as actions from '../actions/index';
-import Main from './Main';
+import Main from "./Main";
+import { getPlayers, searchAction } from "./../actions";
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      getPlayers,
+      searchAction
+    },
+    dispatch
+  );
+
+const mapStateToProps = state => ({
+  players: state.players,
+  filterList: state.filterList
 });
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-    positions: state
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main);

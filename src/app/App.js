@@ -8,10 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       Football Player Finder      
+        Football Player Finder
         <div className="App__container">
-       
-        <PageContainer />
+          <PageContainer />
         </div>
       </div>
     );

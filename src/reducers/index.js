@@ -1,8 +1,13 @@
-import { combineReducers } from 'redux'
-import searchReducer from './search-reducer';
+import { combineReducers } from "redux";
+import {
+  searchReducer,
+  filterPlayers as _filterPlayers
+} from "./search-reducer";
+import playerReducer from "./player-reducer";
 
-const rootReducer = combineReducers({
-    search:searchReducer
-})
+export default combineReducers({
+  players: playerReducer,
+  filterList: searchReducer
+});
 
-export default rootReducer
+//export const filterPlayers = state => (_filterPlayers(state));

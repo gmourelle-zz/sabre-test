@@ -1,17 +1,24 @@
-import { Actions } from '../constants/actionTypes';
+import { createSelector } from "reselect";
 
-const searchReducer = (state = [], action) => {
-    switch (action.type) {
-      case Actions.GET_POSITIONS:
-        return action.payload;
-        //return {...state, countries:[...state, action.payload]};
-      case Actions.SEARCH_SAVE:
-        return action.payload;      
-        //return [...state, action.payload ];
-        //return {...state, articles:[...state.articles, action.payload]};
-      default:
-        return state;
-    }
+import { Actions } from "../constants/actionTypes";
+
+export const initialState = {
+  name: "",
+  position: "",
+  age: ""
+};
+export const searchReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case Actions.SEARCH_SAVE:
+      return action.payload;
+    default:
+      return state;
+  }
 };
 
-export default searchReducer;
+const getPlayers = state => state.players;
+const getFilters = state => state.filterList;
+
+export const filterPlayers = createSelector(
+  (state, filterPlayers) => state.filterPlayers
+);
