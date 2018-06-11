@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, FormGroup, Container, Input, Button, Col } from 'reactstrap';
 import './FilterBar.css';
+import POSITIONS from '../../constants/positions'
 
 class FilterBar extends React.Component {
 
@@ -30,22 +31,9 @@ class FilterBar extends React.Component {
 
         const newSearch = this.state;
         this.props.onSearch(newSearch);
-        //this.setState({ name: '', position: '', age: '' });
     }
 
     render() {
-        const items = [
-            { value: 1, name: 'Attacking Midfield' },
-            { value: 2, name: 'Central Midfield' },
-            { value: 3, name: 'Centre-Back' },
-            { value: 4, name: 'Centre-Forward' },
-            { value: 5, name: 'Defensive Midfield' },
-            { value: 6, name: 'Keeper' },
-            { value: 7, name: 'Left Midfield' },
-            { value: 8, name: 'Left Wing' },
-            { value: 9, name: 'Left-Back' },
-            { value: 10, name: 'Right-Back' },
-        ];
 
         return (
             <Container className="filter__container">
@@ -71,9 +59,9 @@ class FilterBar extends React.Component {
                                 name="position"
                                 id="position">
                                 <option>Position</option>
-                                {items.map(c =>
-                                    <option key={c.value}>
-                                        {c.name}
+                                {POSITIONS.map((p, index) =>
+                                    <option key={index} value={p}>
+                                        {p}
                                     </option>
                                 )}
                             </Input>
