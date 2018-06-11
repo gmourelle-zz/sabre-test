@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
+import React from "react";
 
-import PageContainer from '../containers/Container';
-import './App.css';
+import PageContainer from "../containers/Container";
+import "./App.css";
 
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Football Player Finder</h1>
-        <div className="App__container">
-          <PageContainer />
-        </div>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <h1>Football Player Finder</h1>
+    <div className="App__container">
+      <PageContainer />
+    </div>
+  </div>
+);
 
 export default App;

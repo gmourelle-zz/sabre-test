@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, ListGroup, Alert, ListGroupItem } from "reactstrap";
 import { Row, Col } from "reactstrap";
+import PropTypes from "prop-types";
+import Player from "./Player";
 import "./PlayersGrid.css";
 
 const PlayersGrid = ({ rows }) => {
@@ -20,7 +22,7 @@ const PlayersGrid = ({ rows }) => {
           </Col>
           <Col xs="3">
             <span>
-              <strong>Team</strong>
+              <strong>Nationality</strong>
             </span>
           </Col>
           <Col xs="3">
@@ -33,21 +35,8 @@ const PlayersGrid = ({ rows }) => {
           <Col xs="12">
             <ListGroupItem>
               {rows.length > 0 ? (
-                rows.map((player, i) => (
-                  <Row>
-                    <Col xs="3">
-                      <span>{player.name}</span>
-                    </Col>
-                    <Col xs="3">
-                      <span>{player.position}</span>
-                    </Col>
-                    <Col xs="3">
-                      <span>{player.nationality}</span>
-                    </Col>
-                    <Col xs="3">
-                      <span>{player.dateOfBirth}</span>
-                    </Col>
-                  </Row>
+                rows.map((player, index) => (
+                  <Player key={index} player={player} />
                 ))
               ) : (
                 <Alert color="warning">Any players yet</Alert>
@@ -58,6 +47,15 @@ const PlayersGrid = ({ rows }) => {
       </ListGroup>
     </Container>
   );
+};
+
+PlayersGrid.propTypes = {
+  row: PropTypes.shape({
+    name: PropTypes.string,
+    position: PropTypes.string,
+    nationality: PropTypes.string,
+    dateOfBirth: PropTypes.string
+  })
 };
 
 export default PlayersGrid;
