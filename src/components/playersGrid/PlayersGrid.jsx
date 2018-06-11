@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Container, ListGroup, Alert, ListGroupItem } from "reactstrap";
 import { Row, Col } from "reactstrap";
 import "./PlayersGrid.css";
@@ -45,8 +45,8 @@ const PlayersGrid = ({ rows }) => {
                   </Row>
                 ))
               ) : (
-                <Alert color="warning">Any players yet</Alert>
-              )}
+                  <Alert color="warning">Any players yet</Alert>
+                )}
             </ListGroupItem>
           </Row>
         </ListGroup>

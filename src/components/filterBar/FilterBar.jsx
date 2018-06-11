@@ -1,17 +1,15 @@
 import React from 'react';
 import { Row, FormGroup, Container, Input, Button, Col } from 'reactstrap';
-import './SearchBar.css';
+import './FilterBar.css';
 
-
-class SearchBar extends React.Component {
+class FilterBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            name: '',
-            position: '',
-            age: ''
-        };
+        this.state = { name: '', position: '', age: '' };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     onKeyPress(e) {
@@ -32,7 +30,7 @@ class SearchBar extends React.Component {
 
         const newSearch = this.state;
         this.props.onSearch(newSearch);
-        this.setState({ name: '', position: '', age: '' });
+        //this.setState({ name: '', position: '', age: '' });
     }
 
     render() {
@@ -85,7 +83,6 @@ class SearchBar extends React.Component {
                         <Input
                             value={this.state.age}
                             onChange={e => this.handleChange(e)}
-                            // onKeyPress={e => this.onKeyPress(e)}
                             type="number"
                             name="age"
                             id="age"
@@ -109,4 +106,4 @@ class SearchBar extends React.Component {
     }
 }
 
-export default SearchBar;
+export default FilterBar;

@@ -1,10 +1,9 @@
 import { Actions } from "./../constants/actionTypes";
 
-const getPosition = payload => ({ type: Actions.GET_POSITIONS, payload });
 const getPlayer = payload => ({ type: Actions.GET_PLAYERS, payload });
 
-export const searchAction = payload => ({
-  type: Actions.SEARCH_SAVE,
+export const filterPlayers = payload => ({
+  type: Actions.FILTER_PLAYERS,
   payload: payload
 });
 
@@ -12,18 +11,6 @@ const getPlayerError = payload => ({
   type: Actions.GET_PLAYERS_ERROR,
   payload: payload
 });
-
-const url = "../data/fakeData.json";
-
-export const getPositions = () => {
-  return dispatch => {
-    return fetch(url)
-      .then(data => data.json())
-      .then(position_data => {
-        dispatch(getPosition(position_data));
-      });
-  };
-};
 
 const urlPlayers =
   "https://football-players-b31f2.firebaseio.com/players.json?print=pretty";
