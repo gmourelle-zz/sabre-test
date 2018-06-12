@@ -4,19 +4,20 @@ import PropTypes from "prop-types";
 import ageFromDate from "./../../utils/ageFromDate";
 
 const Player = ({ player }) => {
+  const { name, position, nationality, dateOfBirth } = player;
   return (
     <Row>
       <Col xs="3">
-        <span>{player.name}</span>
+        <span id="player-name" >{name}</span>
       </Col>
       <Col xs="3">
-        <span>{player.position}</span>
+        <span>{position}</span>
       </Col>
       <Col xs="3">
-        <span>{player.nationality}</span>
+        <span>{nationality}</span>
       </Col>
       <Col xs="3">
-        <span>{ageFromDate(player.dateOfBirth)}</span>
+        <span>{ageFromDate(dateOfBirth)}</span>
       </Col>
     </Row>
   );

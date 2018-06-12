@@ -3,9 +3,9 @@ import { Actions } from "../constants/actionTypes";
 export const initialState = {
   players: [],
   filter: {
-    name: '',
-    position: '',
-    age: ''
+    name: "",
+    position: "",
+    age: ""
   }
 };
 
