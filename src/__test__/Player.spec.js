@@ -1,8 +1,7 @@
 import React from "react";
 import Player from "../components/playersGrid/Player";
 import { shallow } from "enzyme";
-import { Row,  Col } from "reactstrap";
-
+import { CLIENT_RENEG_LIMIT } from "tls";
 
 describe("<Player />", () => {
   let wrapper;
@@ -15,11 +14,15 @@ describe("<Player />", () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<Player key={0} player={player} />);
+    wrapper = shallow(<Player player={player} />);
   });
 
-  it("should render each player", () => {
-    expect(wrapper.find(Row).exists()).toBe(true);
-    expect(wrapper.find('#player-name').text()).toBe('Guido');
+  it("renders with props", () => {
+    const span = wrapper.find("span");
+    expect(span.at(0).text()).toEqual("Guido");
+    expect(span.at(1).text()).toEqual("Midfielder");
+    expect(span.at(2).text()).toEqual("Arg");
+    expect(span.at(3).text()).toEqual("38");
+    //console.log(wrapper.debug());
   });
 });

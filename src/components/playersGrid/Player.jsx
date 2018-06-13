@@ -8,7 +8,7 @@ const Player = ({ player }) => {
   return (
     <Row>
       <Col xs="3">
-        <span id="player-name" >{name}</span>
+        <span >{name}</span>
       </Col>
       <Col xs="3">
         <span>{position}</span>

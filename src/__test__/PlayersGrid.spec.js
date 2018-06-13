@@ -1,7 +1,8 @@
 import React from "react";
 import PlayersGrid from "../components/playersGrid/PlayersGrid";
+import Player from "../components/playersGrid/Player";
 import { shallow } from "enzyme";
-import { Col } from "reactstrap";
+import { Container, ListGroup, Alert } from "reactstrap";
 
 describe("<PlayersGrid />", () => {
   let wrapper;
@@ -13,12 +14,33 @@ describe("<PlayersGrid />", () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<PlayersGrid rows={player} />);
+    wrapper = shallow(<PlayersGrid rows={[]} />);
   });
 
-  it("should render list of player", () => {
-    //const playerGrid = wrapper.find(Col).at(0);
-    // expect(playerGrid.exists().toBe(true));
+  it("should renders header", () => {
+    expect(wrapper.find(Container).exists()).toBe(true);
+    expect(wrapper.find(ListGroup).exists()).toBe(true);
+    const strong = wrapper.find("strong");
+    expect(strong.at(0).text()).toEqual("Player");
+    expect(strong.at(1).text()).toEqual("Position");
+    expect(strong.at(2).text()).toEqual("Nationality");
+    expect(strong.at(3).text()).toEqual("Age");
+    //console.log(wrapper.debug());
+  });
+
+  it("should renders no results", () => {
+    //expect(wrapper.is(Alert)).toBe(true);
+    expect(wrapper.contains(<Alert />));
+    //console.log(wrapper.debug());
+  });
+
+  it("should renders results", () => {
+    //expect(wrapper.is(Alert)).toBe(true);
+    //const wrapper2 = shallow(<PlayersGrid rows={player} />);
+
+    wrapper.setProps({ rows: [] });
+    //wrapper= shallow()
+    expect(wrapper.contains(<Player />));
     //console.log(wrapper.debug());
   });
 });
