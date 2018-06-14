@@ -1,7 +1,6 @@
 import React from "react";
 import Player from "../components/playersGrid/Player";
 import { shallow } from "enzyme";
-import { CLIENT_RENEG_LIMIT } from "tls";
 
 describe("<Player />", () => {
   let wrapper;
