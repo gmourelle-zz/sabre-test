@@ -14,30 +14,46 @@ describe("<PlayersGrid />", () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<PlayersGrid rows={[]} />);
+    wrapper = shallow(<PlayersGrid rows={[player]} />);
   });
 
-  it("should renders header", () => {
-    expect(wrapper.find(Container).exists()).toBe(true);
-    expect(wrapper.find(ListGroup).exists()).toBe(true);
-    const strong = wrapper.find("strong");
-    expect(strong.at(0).text()).toEqual("Player");
-    expect(strong.at(1).text()).toEqual("Position");
-    expect(strong.at(2).text()).toEqual("Nationality");
-    expect(strong.at(3).text()).toEqual("Age");
-  });
+  describe('render', () => {
+    it("should display Container with player__container", () => {
+      const container = wrapper.find("Container.player__container");
+      expect(container.exists()).toBe(true);
+    });
 
-  it("should renders no results", () => {
-    expect(wrapper.contains(<Alert />));
-  });
+    it("should display ListGroup with Row with Columns", () => {
+      const container = wrapper.find("Container");
+      expect(container.exists()).toBe(true);
+      expect(container.find("ListGroup").exists()).toBe(true);
+      expect(container.find("Row").exists()).toBe(true);
+      expect(container.find("Col").exists()).toBe(true);
+    });
 
-  it("should renders results", () => {
-    //expect(wrapper.is(Alert)).toBe(true);
-    //const wrapper2 = shallow(<PlayersGrid rows={player} />);
+    it("should render header", () => {
+      expect(wrapper.find(Container).exists()).toBe(true);
+      expect(wrapper.find(ListGroup).exists()).toBe(true);
+      const strong = wrapper.find("strong");
+      expect(strong.at(0).text()).toEqual("Player");
+      expect(strong.at(1).text()).toEqual("Position");
+      expect(strong.at(2).text()).toEqual("Nationality");
+      expect(strong.at(3).text()).toEqual("Age");
+    });
+  
+    it("should render results", () => {
 
-    wrapper.setProps({ rows: [] });
-    //wrapper= shallow()
-    expect(wrapper.contains(<Player />));
-    //console.log(wrapper.debug());
+      expect(wrapper.find("Player").length).toBe(1);
+      expect(wrapper.find("Alert").length).toBe(0);
+
+    });
+  
+    it("should render no results", () => {
+
+      wrapper.setProps({ rows: [] });
+      expect(wrapper.find("Player").length).toBe(0);
+      expect(wrapper.find("Alert").length).toBe(1);
+    });
   });
+ 
 });

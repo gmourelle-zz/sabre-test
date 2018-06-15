@@ -9,7 +9,7 @@ import "./PlayersGrid.css";
 
 const PlayersGrid = ({ rows }) => {
   return (
-    <Container className="players-container">
+    <Container className="player__container">
       <ListGroup>
         <Row>
           <Col xs="3">

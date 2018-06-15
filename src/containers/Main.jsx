@@ -6,7 +6,6 @@ import PlayersGrid from "../components/playersGrid/PlayersGrid";
 
 class Main extends Component {
   componentDidMount() {
-    //llamar a la API que trae los players
     this.props.getPlayers();
   }
 

@@ -51,7 +51,7 @@ describe("<FilterBar />", () => {
         );
       });
 
-      it("should should render with state.name", () => {
+      it("should render with state.name", () => {
         wrapper.setState({ name: "pedro" });
         const nameInput = wrapper.find('Input[name="name"]');
 
@@ -148,9 +148,13 @@ describe("<FilterBar />", () => {
           value: "b"
         }
       };
-
+      
       instance.handleChange(event);
       expect(wrapper.state("a")).toBe("b");
+
+    });
+    
+    it('keyPress should allow only letters ', () => {
     });
   });
 });
