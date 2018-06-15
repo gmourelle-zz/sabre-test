@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, FormGroup, Container, Input, Button, Col } from "reactstrap";
+import uuid from "uuid";
 
 import "./FilterBar.css";
 import PropTypes from "prop-types";
@@ -7,20 +8,14 @@ import PropTypes from "prop-types";
 import POSITIONS from "../../constants/positions";
 
 class FilterBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: "", position: "", age: "" };
+  state = { name: "", position: "", age: "" };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  onKeyPress(e) {
+  onKeyPress = e => {
     const re = /[a-zA-Z]+/g;
     if (!re.test(e.key)) {
       e.preventDefault();
     }
-  }
+  };
 
   handleChange = e => {
     this.setState({
@@ -31,8 +26,7 @@ class FilterBar extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const newSearch = this.state;
-    this.props.onSearch(newSearch);
+    this.props.onSearch(this.state);
   };
 
   render() {
@@ -43,8 +37,8 @@ class FilterBar extends React.Component {
             <FormGroup className="filter__formgroup">
               <Input
                 value={this.state.name}
-                onChange={e => this.handleChange(e)}
-                onKeyPress={e => this.onKeyPress(e)}
+                onChange={this.handleChange}
+                onKeyPress={this.onKeyPress}
                 type="text"
                 name="name"
                 id="name"
@@ -56,14 +50,14 @@ class FilterBar extends React.Component {
             <FormGroup className="filter__formgroup">
               <Input
                 value={this.state.position}
-                onChange={e => this.handleChange(e)}
+                onChange={this.handleChange}
                 type="select"
                 name="position"
                 id="position"
               >
                 <option>Position</option>
-                {POSITIONS.map((p, index) => (
-                  <option key={index} value={p}>
+                {POSITIONS.map(p => (
+                  <option key={uuid.v1()} value={p}>
                     {p}
                   </option>
                 ))}
@@ -73,7 +67,7 @@ class FilterBar extends React.Component {
           <FormGroup className="filter__formgroup">
             <Input
               value={this.state.age}
-              onChange={e => this.handleChange(e)}
+              onChange={this.handleChange}
               type="number"
               name="age"
               id="age"
@@ -85,7 +79,7 @@ class FilterBar extends React.Component {
           <Col>
             <FormGroup className="filter__formgroup">
               <Button
-                onClick={e => this.handleSubmit(e)}
+                onClick={this.handleSubmit}
                 color="primary"
                 className="float-left search-button"
               >

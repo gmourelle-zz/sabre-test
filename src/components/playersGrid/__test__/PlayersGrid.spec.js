@@ -1,6 +1,6 @@
 import React from "react";
-import PlayersGrid from "../components/playersGrid/PlayersGrid";
-import Player from "../components/playersGrid/Player";
+import PlayersGrid from "../PlayersGrid";
+import Player from "../Player";
 import { shallow } from "enzyme";
 import { Container, ListGroup, Alert } from "reactstrap";
 
@@ -25,13 +25,10 @@ describe("<PlayersGrid />", () => {
     expect(strong.at(1).text()).toEqual("Position");
     expect(strong.at(2).text()).toEqual("Nationality");
     expect(strong.at(3).text()).toEqual("Age");
-    //console.log(wrapper.debug());
   });
 
   it("should renders no results", () => {
-    //expect(wrapper.is(Alert)).toBe(true);
     expect(wrapper.contains(<Alert />));
-    //console.log(wrapper.debug());
   });
 
   it("should renders results", () => {

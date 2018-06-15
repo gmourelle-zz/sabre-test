@@ -1,5 +1,5 @@
 import React from "react";
-import Player from "../components/playersGrid/Player";
+import Player from "../Player";
 import { shallow } from "enzyme";
 
 describe("<Player />", () => {

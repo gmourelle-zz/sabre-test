@@ -2,6 +2,8 @@ import React from "react";
 import { Container, ListGroup, Alert, ListGroupItem } from "reactstrap";
 import { Row, Col } from "reactstrap";
 import PropTypes from "prop-types";
+import uuid from "uuid";
+
 import Player from "./Player";
 import "./PlayersGrid.css";
 
@@ -35,9 +37,7 @@ const PlayersGrid = ({ rows }) => {
           <Col xs="12">
             <ListGroupItem>
               {rows.length > 0 ? (
-                rows.map((player, index) => (
-                  <Player key={index} player={player} />
-                ))
+                rows.map(player => <Player key={uuid.v4()} player={player} />)
               ) : (
                 <Alert color="warning">Any players yet</Alert>
               )}
