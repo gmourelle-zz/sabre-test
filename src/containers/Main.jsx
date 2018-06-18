@@ -6,7 +6,7 @@ import PlayersGrid from "../components/playersGrid/PlayersGrid";
 
 class Main extends Component {
   componentDidMount() {
-    this.props.getPlayers();
+   // this.props.getPlayers();
   }
 
   render() {

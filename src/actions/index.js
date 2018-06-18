@@ -1,6 +1,6 @@
 import { Actions } from "./../constants/actionTypes";
 
-const getPlayer = payload => ({ type: Actions.GET_PLAYERS, payload });
+export const getPlayer = payload => ({ type: Actions.GET_PLAYERS, payload });
 
 export const filterPlayers = payload => ({
   type: Actions.FILTER_PLAYERS,
