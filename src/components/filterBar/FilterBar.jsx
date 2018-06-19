@@ -55,7 +55,8 @@ class FilterBar extends React.Component {
                 name="position"
                 id="position"
               >
-                <option>Position</option>
+                <option value="">Position</option>
+
                 {POSITIONS.map(p => (
                   <option key={uuid.v1()} value={p}>
                     {p}
