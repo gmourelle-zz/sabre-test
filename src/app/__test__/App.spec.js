@@ -20,6 +20,6 @@ describe("<App />", () => {
     const title = app.find("h1");
     expect(title.exists()).toBe(true);
     expect(title.text()).toBe("Football Player Finder");
-    console.log(app.debug());
+    //console.log(app.debug());
   });
 });

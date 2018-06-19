@@ -148,13 +148,9 @@ describe("<FilterBar />", () => {
           value: "b"
         }
       };
-      
+
       instance.handleChange(event);
       expect(wrapper.state("a")).toBe("b");
-
-    });
-    
-    it('keyPress should allow only letters ', () => {
     });
   });
 });
