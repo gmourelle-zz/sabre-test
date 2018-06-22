@@ -1,6 +1,6 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { getFilteredPlayers } from '../reducers/selectors';
+import { getFilteredPlayers } from "../reducers/selectors";
 
 import Main from "./Main";
 import { getPlayers, filterPlayers } from "./../actions";
@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch =>
 
 const mapStateToProps = state => ({
   players: getFilteredPlayers(state),
-  filter: state.finder.filter
+  filter: state.finder.filter,
+  fetching: state.finder.fetching
 });
 
 export default connect(

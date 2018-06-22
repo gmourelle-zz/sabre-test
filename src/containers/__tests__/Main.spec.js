@@ -29,8 +29,6 @@ describe("<Main />", () => {
 
   describe("render", () => {
     it("should display Row with filter-container", () => {
-      const container = wrapper.find("Row.filter-container");
-      expect(container.exists()).toBe(true);
       expect(wrapper.find("Row").exists()).toBe(true);
       expect(wrapper.find("Col").exists()).toBe(true);
     });

@@ -1,6 +1,10 @@
 import { Actions } from "./../constants/actionTypes";
 
-export const getPlayer = payload => ({ type: Actions.GET_PLAYERS, payload });
+export const getPlayerSuccess = payload => ({
+  type: Actions.GET_PLAYERS_SUCCESS,
+  payload
+});
+export const getPlayerRequest = () => ({ type: Actions.GET_PLAYERS_REQUEST });
 
 export const filterPlayers = payload => ({
   type: Actions.FILTER_PLAYERS,
@@ -17,10 +21,11 @@ const urlPlayers =
 
 export const getPlayers = () => {
   return dispatch => {
+    dispatch(getPlayerRequest());
     return fetch(urlPlayers)
       .then(data => data.json())
       .then(player_data => {
-        dispatch(getPlayer(player_data));
+        dispatch(getPlayerSuccess(player_data));
       })
       .catch(err => getPlayerError(err));
   };
