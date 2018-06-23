@@ -1,0 +1,33 @@
+{
+  "POSITIONS": [
+    "Attacking Midfield",
+    "Central Midfield",
+    "Centre-Back",
+    "Centre-Forward",
+    "Centre-Forward",
+    "Defensive Midfield",
+    "Keeper",
+    "Left Midfield",
+    "Left Wing",
+    "Left-Back",
+    "Right-Back"
+  ],
+
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
